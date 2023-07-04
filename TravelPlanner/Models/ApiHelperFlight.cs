@@ -14,7 +14,6 @@ namespace TravelPlanner.Models
       IRestResponse response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
-    
   }
 }
 
