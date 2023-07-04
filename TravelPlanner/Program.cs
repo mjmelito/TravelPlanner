@@ -13,9 +13,6 @@ namespace TravelPlanner
   {
     static void Main(string[] args)
     {
-      Task<string> apiCallTask = ApiHelper.ApiCall("[YOUR-API-KEY-HERE]");
-      string result = apiCallTask.Result;
-      Console.WriteLine(result);
 
       WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -42,9 +39,7 @@ namespace TravelPlanner
         options.Password.RequiredLength = 0;
         options.Password.RequiredUniqueChars = 0;
       });
-       
-       
-       
+
 
       WebApplication app = builder.Build();
 
@@ -63,15 +58,5 @@ namespace TravelPlanner
 
       app.Run();
     }
-      class ApiHelper
-  {
-    public static async Task<string> ApiCall(string apiKey)
-    {
-      RestClient client = new RestClient("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport?query=london");
-      RestRequest request = new RestRequest($"home.json?api-key={apiKey}", Method.GET);
-      IRestResponse response = await client.ExecuteTaskAsync(request);
-      return response.Content;
-    }
-  }
   }
 }

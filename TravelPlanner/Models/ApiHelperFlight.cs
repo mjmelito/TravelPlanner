@@ -5,15 +5,16 @@ namespace TravelPlanner.Models
 {
   class ApiHelperFlight
   {
-    public static async Task<string> ApiCall(string apiKey)
+    public static async Task<string> ApiCall(string ApiKey)
     {
-      RestClient client = new RestClient("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport?query=london");
+      RestClient client = new RestClient("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport");
       RestRequest request = new RestRequest(Method.GET);
-      request.AddHeader("X-RapidAPI-Key", apiKey);
+      request.AddHeader("X-RapidAPI-Key", ApiKey);
       request.AddHeader("X-RapidAPI-Host", "tripadvisor16.p.rapidapi.com");
       IRestResponse response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+    
   }
 }
 
