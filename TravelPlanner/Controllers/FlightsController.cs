@@ -10,15 +10,6 @@ namespace TravelPlanner.Controllers
 {
   public class FlightsController : Controller
   {
-     private readonly string ApiKey;
-     public FlightsController()
-     {
-      ApiKey = EnvironmentVariables.ApiKey;
-     }
-    public async Task<IActionResult> Index()
-    {
-     var flights = await Flight.GetFlights(ApiKey);
-     return View(flights);
+     
    }
   }
-}

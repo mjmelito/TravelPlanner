@@ -5,7 +5,6 @@ namespace TravelPlanner.ViewModels
   public class RegisterViewModel
   {
     [Required]
-    [Name]
     [Display(Name = "Name")]
     public string Name { get; set; }
     

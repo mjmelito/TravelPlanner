@@ -10,17 +10,7 @@ namespace TravelPlanner.Models
     {
         public int FlightId { get; set; }
         public string Name { get; set; }
-        public static async Task<List<Flight>> GetFlights(string ApiKey)
-        {
-            List<Flight> flightList = new List<Flight>();
-
-            string result = await ApiHelperFlight.ApiCall(ApiKey);
-
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-            List<Flight> flights = JsonConvert.DeserializeObject<List<Flight>>(jsonResponse["results"].ToString());
-
-            return flights;
-    }
+     
 }
 
 }
