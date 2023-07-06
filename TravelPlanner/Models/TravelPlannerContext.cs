@@ -10,7 +10,7 @@ namespace TravelPlanner.Models
     public DbSet<Flight> Flights { get; set; }
     public DbSet<Hotel> Hotels { get; set; }
     public DbSet<Itinerary> Itineraries { get; set; }
-    public DbSet<DestinationTrip> JoinEntities { get; set; }
+    public DbSet<DestinationTrip> DestinationTrips { get; set; }
     public TravelPlannerContext(DbContextOptions options) : base(options) { }
     }
 }

@@ -239,23 +239,28 @@ namespace TravelPlanner.Migrations
 
             modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
                 {
-                    b.Property<int>("DestinationTripId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("DestinationId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DestinationTripId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TripId")
                         .HasColumnType("int");
 
-                    b.HasKey("DestinationTripId");
+                    b.HasKey("Id");
 
                     b.HasIndex("DestinationId");
 
+                    b.HasIndex("DestinationTripId");
+
                     b.HasIndex("TripId");
 
-                    b.ToTable("JoinEntities");
+                    b.ToTable("DestinationTrips");
                 });
 
             modelBuilder.Entity("TravelPlanner.Models.Flight", b =>
@@ -263,6 +268,9 @@ namespace TravelPlanner.Migrations
                     b.Property<int>("FlightId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
 
                     b.HasKey("FlightId");
 
@@ -382,10 +390,14 @@ namespace TravelPlanner.Migrations
             modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
                 {
                     b.HasOne("TravelPlanner.Models.Destination", "Destination")
-                        .WithMany()
+                        .WithMany("DestinationTrips")
                         .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TravelPlanner.Models.DestinationTrip", null)
+                        .WithMany("DestinationTrips")
+                        .HasForeignKey("DestinationTripId");
 
                     b.HasOne("TravelPlanner.Models.Trip", "Trip")
                         .WithMany()
@@ -434,6 +446,16 @@ namespace TravelPlanner.Migrations
             modelBuilder.Entity("TravelPlanner.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Trips");
+                });
+
+            modelBuilder.Entity("TravelPlanner.Models.Destination", b =>
+                {
+                    b.Navigation("DestinationTrips");
+                });
+
+            modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
+                {
+                    b.Navigation("DestinationTrips");
                 });
 #pragma warning restore 612, 618
         }
