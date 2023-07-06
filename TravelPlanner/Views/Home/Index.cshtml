@@ -1,6 +1,10 @@
 @{
   Layout = "_Layout";
 }
-<h1>Welcome to NomadCraft!</h1>
-<p>Plan all of your adventures with us!</p>
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to NomadCraft!</h1>
+    <h3>Your personal adventure planner</h3>
+    <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Account")" role="button">Create or manage an account</a></p>
+  </div>
