@@ -1,0 +1,35 @@
+@model TravelPlanner.Models.Trip
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Trip Details</h2>
+
+@if (Model == null)
+{
+    <p>No trip found. Please create a trip first.</p>
+}
+else
+{
+    @if (Model.DestinationTrips.Count == 0)
+    {
+        <p>This trip does not have any destinations.</p>
+    }
+    else
+    {
+        <h6>Destinations included in this trip:</h6>
+        <ul>
+            @foreach (var destinationTrip in Model.DestinationTrips)
+            {
+                <li>@Html.ActionLink(destinationTrip.Destination.DestinationName, "Details", "Destinations", new { id = destinationTrip.Destination.DestinationId })</li>
+            }
+        </ul>
+        <br>
+    }
+
+    <p>@Html.ActionLink("Add a destination", "AddDestination", new { id = Model.TripId })</p>
+    <p>@Html.ActionLink("Delete Trip", "Delete", new { id = Model.TripId })</p>
+    <p>@Html.ActionLink("Edit Trip", "Edit", new { id = Model.TripId })</p>
+    <p>@Html.ActionLink("Back to List", "Index")</p>
+}

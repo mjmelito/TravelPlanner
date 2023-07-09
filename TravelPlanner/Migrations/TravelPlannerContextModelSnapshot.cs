@@ -246,17 +246,12 @@ namespace TravelPlanner.Migrations
                     b.Property<int>("DestinationId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DestinationTripId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TripId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DestinationId");
-
-                    b.HasIndex("DestinationTripId");
 
                     b.HasIndex("TripId");
 
@@ -334,6 +329,7 @@ namespace TravelPlanner.Migrations
 
                     b.HasIndex("TransportationId");
 
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Trips");
@@ -398,12 +394,8 @@ namespace TravelPlanner.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelPlanner.Models.DestinationTrip", null)
-                        .WithMany("DestinationTrips")
-                        .HasForeignKey("DestinationTripId");
-
                     b.HasOne("TravelPlanner.Models.Trip", "Trip")
-                        .WithMany()
+                        .WithMany("DestinationTrips")
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -415,6 +407,7 @@ namespace TravelPlanner.Migrations
 
             modelBuilder.Entity("TravelPlanner.Models.Trip", b =>
                 {
+
                     b.HasOne("TravelPlanner.Models.Destination", "Destination")
                         .WithMany()
                         .HasForeignKey("DestinationId")
@@ -456,7 +449,7 @@ namespace TravelPlanner.Migrations
                     b.Navigation("DestinationTrips");
                 });
 
-            modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
+            modelBuilder.Entity("TravelPlanner.Models.Trip", b =>
                 {
                     b.Navigation("DestinationTrips");
                 });
