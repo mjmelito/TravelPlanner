@@ -1,26 +1,30 @@
 @{
-  Layout = "_Layout";
+  Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using TravelPlanner.Models;
 @model List<TravelPlanner.Models.Transportation>;
 
-<h1>Transportations</h1>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h1>Transportations</h1>
 
-@if (@Model.Count == 0)
-{
-  <h3>Where to? No places have been added yet.</h3>
-} 
-else
-{
-  <ul>
-    @foreach (Transportation transportation in Model)
-    {
-      <li>@Html.ActionLink($"{transportation.TransportationName}", "Details", new { id = transportation.TransportationId })</li>
-    }
-  </ul>
-}
+      @if (@Model.Count == 0)
+      {
+        <h3>Where to? No places have been added yet.</h3>
+      } 
+      else
+      {
+        <ul>
+          @foreach (Transportation transportation in Model)
+          {
+            <li>@Html.ActionLink($"{transportation.TransportationName}", "Details", new { id = transportation.TransportationId })</li>
+          }
+        </ul>
+      }
 
-<p>@Html.ActionLink("Add new transportation", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Create")" role="button">Add new transportation</a></p>
+    </div>
+  </div>
+</div>

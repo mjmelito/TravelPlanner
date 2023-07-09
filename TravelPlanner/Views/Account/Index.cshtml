@@ -1,16 +1,33 @@
-<h2>Nomad Craft</h2>
-<hr />
-@if (User.Identity.IsAuthenticated)
-{
-  <p>Hello @User.Identity.Name!</p>
-  @using (Html.BeginForm("LogOff", "Account"))
-  {
-    <input type="submit" class="btn btn-primary" value="Log out" />
-  }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-else
-{
-  <p>@Html.ActionLink("Register", "Register")</p>
-  <p>@Html.ActionLink("Log in", "Login")</p>
-}
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Welcome to NomadCraft, @User.Identity.Name!</h2>
+      <hr />
+      @if (User.Identity.IsAuthenticated)
+      {
+        <h3>What are we doing today?</h3>
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Destinations")" role="button">Destinations</a></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Lodgings")" role="button">Lodgings</a></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Transportations")" role="button">Transportations</a></p>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Trips")" role="button">Trips</a></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("LogOff", "Account")" role="button">Log out</a></p>
+          </div>
+        </div>
+      }
+      else
+      {
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Register")" role="button">Register</a></p>
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Login")" role="button">Log in</a></p>
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Home")" role="button">Home</a></p>
+    </div>
+  </div>
+</div>
