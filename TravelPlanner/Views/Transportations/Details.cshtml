@@ -5,18 +5,24 @@
   Layout = "_Layout";
 }
 
-<h2>Transportation Details</h2>
+<h2>Transportation Information</h2>
+<p>Mode of Transportation: @Html.DisplayFor(model => model.TransportationName)</p>
+<p>Departure Location: @Html.DisplayFor(model => model.DepartureLocation)</p>
+<p>Arrival Location: @Html.DisplayFor(model => model.ArrivalLocation)</p>
+
+
+   
     @if (@Model.TransportationTrips.Count == 0)
     {
       <p>This transportation needs a trip to go with it!</p>
     }
     else
     {
-      <h6>These trips contain this transportation:</h6>
+      <h6>These trips contain these modes of transportation:</h6>
       <ul>
         @foreach (TransportationTrip join in Model.TransportationTrips)
         {
-          <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
+          <h4>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</h4>
         }
       </ul>
       <br>

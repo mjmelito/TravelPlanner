@@ -21,6 +21,12 @@
   @Html.LabelFor(model => model.Country)
   @Html.TextBoxFor(model => model.Country)
 
+ @Html.LabelFor(model => model.Arrival)
+ @Html.TextBoxFor(model => model.Arrival, new { type = "datetime-local" })
+
+@Html.LabelFor(model => model.Departure)
+@Html.TextBoxFor(model => model.Departure, new { type = "datetime-local" })
+
 
   <input type="submit" value="Add new Lodging" class="btn btn-primary" />
 }

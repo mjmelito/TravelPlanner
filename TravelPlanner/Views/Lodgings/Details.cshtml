@@ -6,13 +6,20 @@
 }
 
 <h2>Lodging Details</h2>
+<p>Lodging Name: @Html.DisplayFor(model => model.LodgingName)</p>
+<p>Lodging Type: @Html.DisplayFor(model => model.LodgingType)</p>
+<p>City: @Html.DisplayFor(model => model.City)</p>
+<p>Country: @Html.DisplayFor(model => model.Country)</p>
+<p>Arrival: @Html.DisplayFor(model => model.Arrival)</p>
+<p>Departure: @Html.DisplayFor(model => model.Departure)</p>
+  
     @if (@Model.LodgingTrips.Count == 0)
     {
       <p>This lodging needs a trip to go with it!</p>
     }
     else
     {
-      <h6>These trips contain this lodging:</h6>
+      <h6>These trips contain these lodgings:</h6>
       <ul>
         @foreach (LodgingTrip join in Model.LodgingTrips)
         {
