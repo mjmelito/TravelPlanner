@@ -1,12 +1,5 @@
 
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-
-using System.ComponentModel.DataAnnotations;
 
 namespace TravelPlanner.Models
 {
