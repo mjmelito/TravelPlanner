@@ -1,0 +1,28 @@
+@using TravelPlanner.Models
+@model TravelPlanner.Models.Transportation
+
+@{
+  Layout = "_Layout";
+}
+
+<h2>Transportation Details</h2>
+    @if (@Model.TransportationTrips.Count == 0)
+    {
+      <p>This transportation needs a trip to go with it!</p>
+    }
+    else
+    {
+      <h6>These trips contain this transportation:</h6>
+      <ul>
+        @foreach (TransportationTrip join in Model.TransportationTrips)
+        {
+          <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
+        }
+      </ul>
+      <br>
+    }
+    <p>@Html.ActionLink("Add a trip", "AddTrip", new { id = Model.TransportationId})</p>
+
+<p>@Html.ActionLink("Delete Transportation", "Delete", new { id = Model.TransportationId })</p>
+<p>@Html.ActionLink("Edit Transportation", "Edit", new { id = Model.TransportationId})</p> 
+<p>@Html.ActionLink("Back to List", "Index")</p>

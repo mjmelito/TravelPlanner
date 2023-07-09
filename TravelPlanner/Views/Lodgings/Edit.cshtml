@@ -13,8 +13,17 @@
   @Html.HiddenFor(model => model.LodgingId)
 
   @Html.LabelFor(model => model.LodgingName)
-  @Html.EditorFor(model => model.LodgingName)
+  @Html.TextBoxFor(model => model.LodgingName)
 
+  @Html.LabelFor(model => model.LodgingType)
+  @Html.TextBoxFor(model => model.LodgingType)
+
+  @Html.LabelFor(model => model.City)
+  @Html.TextBoxFor(model => model.City)
+
+  @Html.LabelFor(model => model.Country)
+  @Html.TextBoxFor(model => model.Country)
+  
   <input type="submit" value="Save" />
 }
 
