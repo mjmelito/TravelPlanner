@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Transportation
+
+
+<h4>Add your transportation!</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.TransportationName)
+  @Html.TextBoxFor(model => model.TransportationName)
+
+  @Html.LabelFor(model => model.Mode)
+  @Html.TextBoxFor(model => model.Mode)
+
+  @Html.LabelFor(model => model.DepartureLocation)
+  @Html.TextBoxFor(model => model.DepartureLocation)
+
+  @Html.LabelFor(model => model.ArrivalLocation)
+  @Html.TextBoxFor(model => model.ArrivalLocation)
+
+
+  <input type="submit" value="Add new transportation" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all Transportations", "Index")</p>

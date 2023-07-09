@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Transportation
+
+<h2>Add a trip for this transportation: @Html.DisplayFor(model => model.TransportationName)</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TransportationId)
+
+    @Html.Label("Select a trip")<br>
+    @Html.DropDownList("TripId")
+
+    <br><br><input type="submit" value="Save" class="btn btn-dark"/>
+}
