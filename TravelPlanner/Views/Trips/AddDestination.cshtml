@@ -1,0 +1,13 @@
+@model TravelPlanner.Models.Trip
+
+<h2>Add a destination for this trip: @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TripId)
+
+    @Html.Label("Select a destination")<br>
+    @Html.DropDownList("DestinationId", ViewBag.DestinationId as SelectList)
+
+    <br><br><input type="submit" value="Save" class="btn btn-dark"/>
+}

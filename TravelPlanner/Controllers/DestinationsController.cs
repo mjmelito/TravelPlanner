@@ -49,7 +49,7 @@ namespace TravelPlanner.Controllers
      public ActionResult AddTrip(int id)
     {
       Destination thisDestination = _db.Destinations.FirstOrDefault(destinations => destinations.DestinationId == id);
-      ViewBag.TripId = new SelectList(_db.Trips, "TreatId", "Name");
+      ViewBag.TripId = new SelectList(_db.Trips, "TripId", "Name");
       return View(thisDestination);
     }
 
