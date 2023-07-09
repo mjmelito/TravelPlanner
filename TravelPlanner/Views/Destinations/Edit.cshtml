@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Destination
+
+<h2>Edit</h2>
+
+<h4>Edit this Destination: @Html.DisplayFor(model => model.DestinationName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.DestinationId)
+
+  @Html.LabelFor(model => model.DestinationName)
+  @Html.EditorFor(model => model.DestinationName)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

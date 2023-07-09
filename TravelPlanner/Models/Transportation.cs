@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TravelPlanner.Models
 {
-    public class Flight
+    public class Transportation
     {
-        public int FlightId { get; set; }
-        public string Name { get; set; }
+        public int TransportationId { get; set; }
+        public string TransportationMode { get; set; }
      
 }
 
