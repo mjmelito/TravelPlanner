@@ -41,8 +41,13 @@ namespace TravelPlanner.Controllers
      public ActionResult Details(int id)
 {
     Trip thisTrip = _db.Trips
+                        .Include(trip => trip.LodgingTrips)
+                        .ThenInclude(join =>join.Lodging)
+                        .Include(trip => trip.TransportationTrips)
+                        .ThenInclude(join =>join.Transportation)
                         .Include(trip => trip.DestinationTrips)
                         .ThenInclude(join => join.Destination)
+                        
                         .FirstOrDefault(trip => trip.TripId == id);
     
     return View(thisTrip);
