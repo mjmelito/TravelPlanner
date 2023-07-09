@@ -8,7 +8,7 @@ using System;
 
 namespace TravelPlanner.Controllers
 {
-  public class FlightsController : Controller
+  public class TransportationsController : Controller
   {
      
    }
