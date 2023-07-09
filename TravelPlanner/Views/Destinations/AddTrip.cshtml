@@ -4,14 +4,20 @@
 
 @model TravelPlanner.Models.Destination
 
-<h2>Add a trip for this destination: @Html.DisplayFor(model => model.DestinationName)</h2>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Add a trip for this destination: @Html.DisplayFor(model => model.DestinationName)</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.DestinationId)
+      @using (Html.BeginForm())
+      {
+          @Html.HiddenFor(model => model.DestinationId)
 
-    @Html.Label("Select a trip")<br>
-    @Html.DropDownList("TripId")
+          @Html.Label("Select a trip")<br>
+          @Html.DropDownList("TripId", null, new { @class = "form-control" })
 
-    <br><br><input type="submit" value="Save" class="btn btn-dark"/>
-}
+          <br><br><input type="submit" value="Save" class="btn btn-primary btn-lg"/>
+      }
+    </div>
+  </div>
+</div>

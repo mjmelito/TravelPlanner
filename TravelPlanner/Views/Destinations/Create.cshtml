@@ -4,14 +4,19 @@
 
 @model TravelPlanner.Models.Destination
 
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h4>Add your Destination!</h4>
 
-<h4>Add your Destination!</h4>
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.DestinationName)
+        @Html.TextBoxFor(model => model.DestinationName, new { @class = "form-control" })
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.DestinationName)
-  @Html.TextBoxFor(model => model.DestinationName)
-
-  <input type="submit" value="Add new destination" class="btn btn-primary" />
-}
-<p>@Html.ActionLink("Show all destinations", "Index")</p>
+        <br><input type="submit" value="Add new destination" class="btn btn-primary btn-lg" />
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button">Show all destinations</a></p>
+    </div>
+  </div>
+</div>

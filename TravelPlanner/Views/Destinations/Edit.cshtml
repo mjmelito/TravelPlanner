@@ -4,18 +4,23 @@
 
 @model TravelPlanner.Models.Destination
 
-<h2>Edit</h2>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Edit</h2>
 
-<h4>Edit this Destination: @Html.DisplayFor(model => model.DestinationName)</h4>
+      <h4>Edit this Destination: @Html.DisplayFor(model => model.DestinationName)</h4>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.DestinationId)
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.DestinationId)
 
-  @Html.LabelFor(model => model.DestinationName)
-  @Html.EditorFor(model => model.DestinationName)
+        @Html.LabelFor(model => model.DestinationName)
+        @Html.EditorFor(model => model.DestinationName, new { @class = "form-control" })
 
-  <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+        <br><input type="submit" value="Save" class="btn btn-primary btn-lg" />
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button">Back to list</a></p>
+    </div>
+  </div>
+</div>

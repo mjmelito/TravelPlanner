@@ -5,24 +5,29 @@
   Layout = "_Layout";
 }
 
-<h2>Destination Details</h2>
-    @if (@Model.DestinationTrips.Count == 0)
-    {
-      <p>This destination needs a trip to go with it!</p>
-    }
-    else
-    {
-      <h6>These trips contain this destination:</h6>
-      <ul>
-        @foreach (DestinationTrip join in Model.DestinationTrips)
-        {
-          <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
-        }
-      </ul>
-      <br>
-    }
-    <p>@Html.ActionLink("Add a trip", "AddTrip", new { id = Model.DestinationId})</p>
-
-<p>@Html.ActionLink("Delete Destination", "Delete", new { id = Model.DestinationId })</p>
-<p>@Html.ActionLink("Edit Destination", "Edit", new { id = Model.DestinationId})</p> 
-<p>@Html.ActionLink("Back to List", "Index")</p>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Destination Details</h2>
+      @if (@Model.DestinationTrips.Count == 0)
+      {
+        <p>This destination needs a trip to go with it!</p>
+      }
+      else
+      {
+        <h6>These trips contain this destination:</h6>
+        <ul>
+          @foreach (DestinationTrip join in Model.DestinationTrips)
+          {
+            <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
+          }
+        </ul>
+        <br>
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("AddTrip", new { id = Model.DestinationId })" role="button">Add a trip</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Delete", new { id = Model.DestinationId })" role="button">Delete Destination</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Edit", new { id = Model.DestinationId })" role="button">Edit Destination</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button">Back to List</a></p>
+    </div>
+  </div>
+</div>

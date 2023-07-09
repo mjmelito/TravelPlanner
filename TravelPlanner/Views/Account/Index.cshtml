@@ -10,15 +10,16 @@
       @if (User.Identity.IsAuthenticated)
       {
         <h3>What are we doing today?</h3>
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-sm-12 col-md-6">
-            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Destinations")" role="button">Destinations</a></p>
-            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Lodgings")" role="button">Lodgings</a></p>
-            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Transportations")" role="button">Transportations</a></p>
-          </div>
-          <div class="col-sm-12 col-md-6">
+            <p><strong>See where you've been</strong></p>
             <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Trips")" role="button">Trips</a></p>
-            <p><a class="btn btn-primary btn-lg" href="@Url.Action("LogOff", "Account")" role="button">Log out</a></p>
+            <p><strong>Plan where you'd like to go</strong></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Destinations")" role="button">Destinations</a></p>
+            <p><strong>Plan where you're going to stay</strong></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Lodgings")" role="button">Lodgings</a></p>
+            <p><strong>Plan how you're getting around</strong></p>
+            <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Transportations")" role="button">Transportations</a></p>
           </div>
         </div>
       }
@@ -27,7 +28,7 @@
         <p><a class="btn btn-primary btn-lg" href="@Url.Action("Register")" role="button">Register</a></p>
         <p><a class="btn btn-primary btn-lg" href="@Url.Action("Login")" role="button">Log in</a></p>
       }
-      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Home")" role="button">Home</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Home")" role="button" style="margin-bottom: 20px">Home</a></p>
     </div>
   </div>
 </div>
