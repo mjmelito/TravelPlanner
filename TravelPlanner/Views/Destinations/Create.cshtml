@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Destination
+
+
+<h4>Add your Destination!</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.DestinationName)
+  @Html.TextBoxFor(model => model.DestinationName)
+
+  <input type="submit" value="Add new destination" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all destinations", "Index")</p>

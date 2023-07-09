@@ -239,48 +239,28 @@ namespace TravelPlanner.Migrations
 
             modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
                 {
-                    b.Property<int>("DestinationTripId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("DestinationId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("DestinationTripId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TripId")
                         .HasColumnType("int");
 
-                    b.HasKey("DestinationTripId");
+                    b.HasKey("Id");
 
                     b.HasIndex("DestinationId");
 
+                    b.HasIndex("DestinationTripId");
+
                     b.HasIndex("TripId");
 
-                    b.ToTable("JoinEntities");
-                });
-
-            modelBuilder.Entity("TravelPlanner.Models.Flight", b =>
-                {
-                    b.Property<int>("FlightId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.HasKey("FlightId");
-
-                    b.ToTable("Flights");
-                });
-
-            modelBuilder.Entity("TravelPlanner.Models.Hotel", b =>
-                {
-                    b.Property<int>("HotelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("HotelId");
-
-                    b.ToTable("Hotels");
+                    b.ToTable("DestinationTrips");
                 });
 
             modelBuilder.Entity("TravelPlanner.Models.Itinerary", b =>
@@ -294,6 +274,37 @@ namespace TravelPlanner.Migrations
                     b.ToTable("Itineraries");
                 });
 
+            modelBuilder.Entity("TravelPlanner.Models.Lodging", b =>
+                {
+                    b.Property<int>("LodgingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("LodgingId");
+
+                    b.ToTable("Lodgings");
+                });
+
+            modelBuilder.Entity("TravelPlanner.Models.Transportation", b =>
+                {
+                    b.Property<int>("TransportationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("TransportationMode")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("TransportationId");
+
+                    b.ToTable("Transportations");
+                });
+
             modelBuilder.Entity("TravelPlanner.Models.Trip", b =>
                 {
                     b.Property<int>("TripId")
@@ -303,14 +314,14 @@ namespace TravelPlanner.Migrations
                     b.Property<int>("DestinationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FlightId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HotelId")
+                    b.Property<int>("LodgingId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("TransportationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
@@ -319,9 +330,9 @@ namespace TravelPlanner.Migrations
 
                     b.HasIndex("DestinationId");
 
-                    b.HasIndex("FlightId");
+                    b.HasIndex("LodgingId");
 
-                    b.HasIndex("HotelId");
+                    b.HasIndex("TransportationId");
 
                     b.HasIndex("UserId");
 
@@ -382,10 +393,14 @@ namespace TravelPlanner.Migrations
             modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
                 {
                     b.HasOne("TravelPlanner.Models.Destination", "Destination")
-                        .WithMany()
+                        .WithMany("DestinationTrips")
                         .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TravelPlanner.Models.DestinationTrip", null)
+                        .WithMany("DestinationTrips")
+                        .HasForeignKey("DestinationTripId");
 
                     b.HasOne("TravelPlanner.Models.Trip", "Trip")
                         .WithMany()
@@ -406,15 +421,15 @@ namespace TravelPlanner.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelPlanner.Models.Flight", "Flight")
+                    b.HasOne("TravelPlanner.Models.Lodging", "Lodging")
                         .WithMany()
-                        .HasForeignKey("FlightId")
+                        .HasForeignKey("LodgingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelPlanner.Models.Hotel", "Hotel")
+                    b.HasOne("TravelPlanner.Models.Transportation", "Transportation")
                         .WithMany()
-                        .HasForeignKey("HotelId")
+                        .HasForeignKey("TransportationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -424,9 +439,9 @@ namespace TravelPlanner.Migrations
 
                     b.Navigation("Destination");
 
-                    b.Navigation("Flight");
+                    b.Navigation("Lodging");
 
-                    b.Navigation("Hotel");
+                    b.Navigation("Transportation");
 
                     b.Navigation("User");
                 });
@@ -434,6 +449,16 @@ namespace TravelPlanner.Migrations
             modelBuilder.Entity("TravelPlanner.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Trips");
+                });
+
+            modelBuilder.Entity("TravelPlanner.Models.Destination", b =>
+                {
+                    b.Navigation("DestinationTrips");
+                });
+
+            modelBuilder.Entity("TravelPlanner.Models.DestinationTrip", b =>
+                {
+                    b.Navigation("DestinationTrips");
                 });
 #pragma warning restore 612, 618
         }
