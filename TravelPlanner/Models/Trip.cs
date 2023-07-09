@@ -8,7 +8,7 @@ namespace TravelPlanner.Models
         public string Name { get; set; }
         public ApplicationUser User { get; set; }
         public int HotelId { get; set; }
-        public Hotel Hotel { get; set; }
+        public Lodging Lodging { get; set; }
         public int FlightId { get; set; }
         public Flight Flight {get; set; }
         public int DestinationId {get; set; }
