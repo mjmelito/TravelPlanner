@@ -11,6 +11,7 @@ namespace TravelPlanner.Models
     public DbSet<Lodging> Lodgings { get; set; }
     public DbSet<Itinerary> Itineraries { get; set; }
     public DbSet<DestinationTrip> DestinationTrips { get; set; }
+    public DbSet<LodgingTrip> LodgingTrips { get; set; }
     public TravelPlannerContext(DbContextOptions options) : base(options) { }
     }
 }
