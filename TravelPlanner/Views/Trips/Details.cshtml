@@ -1,10 +1,9 @@
 @model TravelPlanner.Models.Trip
-
+@using TravelPlanner.Models
 @{
     Layout = "_Layout";
 }
 
-<h2>Trip Details</h2>
 
 @if (Model == null)
 {
@@ -12,6 +11,9 @@
 }
 else
 {
+   <h2>Trip Information:</h2>
+    <p>Trip Name: @Html.DisplayFor(model => model.Name)</p>
+
     @if (Model.DestinationTrips.Count == 0)
     {
         <p>This trip does not have any destinations.</p>
@@ -27,9 +29,41 @@ else
         </ul>
         <br>
     }
-
-    <p>@Html.ActionLink("Add a destination", "AddDestination", new { id = Model.TripId })</p>
+    @if (Model.TransportationTrips.Count == 0)
+    {
+        <p>This trip does not have any modes of transportation.</p>
+    }
+    else
+    {
+        <h6>Transportation included in this trip:</h6>
+        <ul>
+            @foreach (var transportationTrip in Model.TransportationTrips)
+            {
+                <li>@Html.ActionLink(transportationTrip.Transportation.TransportationName, "Details", "Transportations", new { id = transportationTrip.Transportation.TransportationId })</li>
+            }
+        </ul>
+        <br>
+    }
+      @if (Model.LodgingTrips.Count == 0)
+    {
+        <p>This trip does not have any lodgings.</p>
+    }
+    else
+    {
+        <h6>Lodging included in this trip:</h6>
+        <ul>
+            @foreach (var lodgingTrip in Model.LodgingTrips)
+            {
+                <li>@Html.ActionLink(lodgingTrip.Lodging.LodgingName, "Details", "Lodgings", new { id = lodgingTrip.Lodging.LodgingId })</li>
+            }
+        </ul>
+        <br>
+    }
+    
+@* 
+    <p>@Html.ActionLink("Add a destination", "AddDestination", new { id = Model.TripId })</p> *@
     <p>@Html.ActionLink("Delete Trip", "Delete", new { id = Model.TripId })</p>
     <p>@Html.ActionLink("Edit Trip", "Edit", new { id = Model.TripId })</p>
     <p>@Html.ActionLink("Back to List", "Index")</p>
 }
+    

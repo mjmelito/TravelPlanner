@@ -5,15 +5,12 @@
 @model TravelPlanner.Models.Transportation
 
 
-<h4>Add your transportation!</h4>
+<h4>How will you travel?</h4>
 
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.TransportationName)
   @Html.TextBoxFor(model => model.TransportationName)
-
-  @Html.LabelFor(model => model.Mode)
-  @Html.TextBoxFor(model => model.Mode)
 
   @Html.LabelFor(model => model.DepartureLocation)
   @Html.TextBoxFor(model => model.DepartureLocation)
