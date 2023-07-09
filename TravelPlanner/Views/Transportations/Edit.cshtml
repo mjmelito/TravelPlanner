@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Transportation
+
+<h2>Edit</h2>
+
+<h4>Edit this transportation: @Html.DisplayFor(model => model.TransportationName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TransportationId)
+
+  @Html.LabelFor(model => model.TransportationName)
+  @Html.EditorFor(model => model.TransportationName)
+
+  @Html.LabelFor(model => model.Mode)
+  @Html.EditorFor(model => model.Mode)
+
+  @Html.LabelFor(model => model.DepartureLocation)
+  @Html.EditorFor(model => model.DepartureLocation)
+
+  @Html.LabelFor(model => model.ArrivalLocation)
+  @Html.EditorFor(model => model.ArrivalLocation)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

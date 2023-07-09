@@ -306,13 +306,29 @@ namespace TravelPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("DestinationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LodgingId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("TransportationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("TripId");
+
+                    b.HasIndex("DestinationId");
+
+                    b.HasIndex("LodgingId");
+
+                    b.HasIndex("TransportationId");
+
 
                     b.HasIndex("UserId");
 
@@ -391,9 +407,34 @@ namespace TravelPlanner.Migrations
 
             modelBuilder.Entity("TravelPlanner.Models.Trip", b =>
                 {
+
+                    b.HasOne("TravelPlanner.Models.Destination", "Destination")
+                        .WithMany()
+                        .HasForeignKey("DestinationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TravelPlanner.Models.Lodging", "Lodging")
+                        .WithMany()
+                        .HasForeignKey("LodgingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TravelPlanner.Models.Transportation", "Transportation")
+                        .WithMany()
+                        .HasForeignKey("TransportationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TravelPlanner.Models.ApplicationUser", "User")
                         .WithMany("Trips")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Destination");
+
+                    b.Navigation("Lodging");
+
+                    b.Navigation("Transportation");
 
                     b.Navigation("User");
                 });

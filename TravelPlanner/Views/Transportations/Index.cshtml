@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using TravelPlanner.Models;
+@model List<TravelPlanner.Models.Transportation>;
+
+<h1>Transportations</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>Where to? No places have been added yet.</h3>
+} 
+else
+{
+  <ul>
+    @foreach (Transportation transportation in Model)
+    {
+      <li>@Html.ActionLink($"{transportation.TransportationName}", "Details", new { id = transportation.TransportationId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add new transportation", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+

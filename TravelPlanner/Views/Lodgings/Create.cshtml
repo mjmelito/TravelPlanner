@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelPlanner.Models.Lodging
+
+
+<h4>Add your Lodging!</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.LodgingName)
+  @Html.TextBoxFor(model => model.LodgingName)
+
+  @Html.LabelFor(model => model.LodgingType)
+  @Html.TextBoxFor(model => model.LodgingType)
+
+  @Html.LabelFor(model => model.City)
+  @Html.TextBoxFor(model => model.City)
+
+  @Html.LabelFor(model => model.Country)
+  @Html.TextBoxFor(model => model.Country)
+
+
+  <input type="submit" value="Add new Lodging" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all Lodgings", "Index")</p>

@@ -1,9 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content-box {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: solid 2px white;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7); /* Optional: makes the jumbotron semi-transparent */
+}
+
 div#footer {
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	color:#CCC;
-	background:#333;
-	padding:8px;
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  color:#CCC;
+  background:#333;
+  padding:8px;
 }
