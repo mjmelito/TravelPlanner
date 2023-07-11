@@ -4,30 +4,34 @@
 
 @model TravelPlanner.Models.Lodging
 
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h4>Add your Lodging!</h4>
 
-<h4>Add your Lodging!</h4>
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.LodgingName)
+        @Html.TextBoxFor(model => model.LodgingName, new { @class = "form-control" })
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.LodgingName)
-  @Html.TextBoxFor(model => model.LodgingName)
+        @Html.LabelFor(model => model.LodgingType)
+        @Html.TextBoxFor(model => model.LodgingType, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.LodgingType)
-  @Html.TextBoxFor(model => model.LodgingType)
+        @Html.LabelFor(model => model.City)
+        @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.City)
-  @Html.TextBoxFor(model => model.City)
+        @Html.LabelFor(model => model.Country)
+        @Html.TextBoxFor(model => model.Country, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.Country)
-  @Html.TextBoxFor(model => model.Country)
+        @Html.LabelFor(model => model.Arrival)
+        @Html.TextBoxFor(model => model.Arrival, new { type = "datetime-local", @class = "form-control" })
 
- @Html.LabelFor(model => model.Arrival)
- @Html.TextBoxFor(model => model.Arrival, new { type = "datetime-local" })
+        @Html.LabelFor(model => model.Departure)
+        @Html.TextBoxFor(model => model.Departure, new { type = "datetime-local", @class = "form-control" })
 
-@Html.LabelFor(model => model.Departure)
-@Html.TextBoxFor(model => model.Departure, new { type = "datetime-local" })
-
-
-  <input type="submit" value="Add new Lodging" class="btn btn-primary" />
-}
-<p>@Html.ActionLink("Show all Lodgings", "Index")</p>
+        <br><input type="submit" value="Add new Lodging" class="btn btn-primary btn-lg" />
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px; margin-bottom: 20px">Show all Lodgings</a></p>
+    </div>
+  </div>
+</div>

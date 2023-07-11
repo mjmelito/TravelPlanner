@@ -4,21 +4,25 @@
 
 @model TravelPlanner.Models.Transportation
 
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h4>How will you travel?</h4>
 
-<h4>How will you travel?</h4>
+      @using (Html.BeginForm())
+      {
+        @Html.LabelFor(model => model.TransportationName)
+        @Html.TextBoxFor(model => model.TransportationName, new { @class = "form-control" })
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.TransportationName)
-  @Html.TextBoxFor(model => model.TransportationName)
+        @Html.LabelFor(model => model.DepartureLocation)
+        @Html.TextBoxFor(model => model.DepartureLocation, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.DepartureLocation)
-  @Html.TextBoxFor(model => model.DepartureLocation)
+        @Html.LabelFor(model => model.ArrivalLocation)
+        @Html.TextBoxFor(model => model.ArrivalLocation, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.ArrivalLocation)
-  @Html.TextBoxFor(model => model.ArrivalLocation)
-
-
-  <input type="submit" value="Add new transportation" class="btn btn-primary" />
-}
-<p>@Html.ActionLink("Show all Transportations", "Index")</p>
+        <br><input type="submit" value="Add new transportation" class="btn btn-primary btn-lg" />
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Show all Transportations</a></p>
+    </div>
+  </div>
+</div>

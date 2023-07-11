@@ -5,31 +5,36 @@
   Layout = "_Layout";
 }
 
-<h2>Lodging Details</h2>
-<p>Lodging Name: @Html.DisplayFor(model => model.LodgingName)</p>
-<p>Lodging Type: @Html.DisplayFor(model => model.LodgingType)</p>
-<p>City: @Html.DisplayFor(model => model.City)</p>
-<p>Country: @Html.DisplayFor(model => model.Country)</p>
-<p>Arrival: @Html.DisplayFor(model => model.Arrival)</p>
-<p>Departure: @Html.DisplayFor(model => model.Departure)</p>
-  
-    @if (@Model.LodgingTrips.Count == 0)
-    {
-      <p>This lodging needs a trip to go with it!</p>
-    }
-    else
-    {
-      <h6>These trips contain these lodgings:</h6>
-      <ul>
-        @foreach (LodgingTrip join in Model.LodgingTrips)
-        {
-          <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
-        }
-      </ul>
-      <br>
-    }
-    <p>@Html.ActionLink("Add a trip", "AddTrip", new { id = Model.LodgingId})</p>
-
-<p>@Html.ActionLink("Delete Lodging", "Delete", new { id = Model.LodgingId })</p>
-<p>@Html.ActionLink("Edit Lodging", "Edit", new { id = Model.LodgingId})</p> 
-<p>@Html.ActionLink("Back to List", "Index")</p>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Lodging Details</h2>
+      <p>Lodging Name: @Html.DisplayFor(model => model.LodgingName)</p>
+      <p>Lodging Type: @Html.DisplayFor(model => model.LodgingType)</p>
+      <p>City: @Html.DisplayFor(model => model.City)</p>
+      <p>Country: @Html.DisplayFor(model => model.Country)</p>
+      <p>Arrival: @Html.DisplayFor(model => model.Arrival)</p>
+      <p>Departure: @Html.DisplayFor(model => model.Departure)</p>
+      
+      @if (@Model.LodgingTrips.Count == 0)
+      {
+        <p>This lodging needs a trip to go with it!</p>
+      }
+      else
+      {
+        <h6>These trips contain these lodgings:</h6>
+        <ul>
+          @foreach (LodgingTrip join in Model.LodgingTrips)
+          {
+            <li>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</li>
+          }
+        </ul>
+        <br>
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("AddTrip", new { id = Model.LodgingId })" role="button">Add a trip</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Delete", new { id = Model.LodgingId })" role="button">Delete Lodging</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Edit", new { id = Model.LodgingId })" role="button">Edit Lodging</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to List</a></p>
+    </div>
+  </div>
+</div>

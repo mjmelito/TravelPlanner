@@ -1,13 +1,20 @@
 @model TravelPlanner.Models.Trip
 
-<h2>Add a destination for this trip: @Html.DisplayFor(model => model.Name)</h2>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h4>Add a destination for this trip: @Html.DisplayFor(model => model.Name)</h4>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.TripId)
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.TripId)
 
-    @Html.Label("Select a destination")<br>
-    @Html.DropDownList("DestinationId", ViewBag.DestinationId as SelectList)
+        <label class="form-label">Select a destination</label><br>
+        @Html.DropDownList("DestinationId", ViewBag.DestinationId as SelectList, new { @class = "form-control" })
 
-    <br><br><input type="submit" value="Save" class="btn btn-dark"/>
-}
+        <br><br><input type="submit" value="Save" class="btn btn-primary btn-lg"/>
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to List</a></p>
+    </div>
+  </div>
+</div>

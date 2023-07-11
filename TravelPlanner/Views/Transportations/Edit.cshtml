@@ -4,27 +4,31 @@
 
 @model TravelPlanner.Models.Transportation
 
-<h2>Edit</h2>
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="jumbotron text-center content-box">
+      <h2>Edit</h2>
+      <h4>Edit this transportation: @Html.DisplayFor(model => model.TransportationName)</h4>
 
-<h4>Edit this transportation: @Html.DisplayFor(model => model.TransportationName)</h4>
+      @using (Html.BeginForm())
+      {
+        @Html.HiddenFor(model => model.TransportationId)
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.TransportationId)
+        @Html.LabelFor(model => model.TransportationName)
+        @Html.EditorFor(model => model.TransportationName, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.TransportationName)
-  @Html.EditorFor(model => model.TransportationName)
+        @Html.LabelFor(model => model.Mode)
+        @Html.EditorFor(model => model.Mode, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.Mode)
-  @Html.EditorFor(model => model.Mode)
+        @Html.LabelFor(model => model.DepartureLocation)
+        @Html.EditorFor(model => model.DepartureLocation, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.DepartureLocation)
-  @Html.EditorFor(model => model.DepartureLocation)
+        @Html.LabelFor(model => model.ArrivalLocation)
+        @Html.EditorFor(model => model.ArrivalLocation, new { @class = "form-control" })
 
-  @Html.LabelFor(model => model.ArrivalLocation)
-  @Html.EditorFor(model => model.ArrivalLocation)
-
-  <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Back to list", "Index")</p>
+        <br><input type="submit" value="Save" class="btn btn-primary btn-lg" />
+      }
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to list</a></p>
+    </div>
+  </div>
+</div>
