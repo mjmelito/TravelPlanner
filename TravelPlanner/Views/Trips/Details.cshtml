@@ -61,7 +61,8 @@
             </ul>
             <br>
         }
-        
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Transportations")" role="button">Add Transportation</a></p>
+        <p><a class="btn btn-primary btn-lg" href="@Url.Action("Create", "Lodgings")" role="button">Add Lodgings</a></p>
         <p><a class="btn btn-primary btn-lg" href="@Url.Action("Delete", new { id = Model.TripId })" role="button">Delete Trip</a></p>
         <p><a class="btn btn-primary btn-lg" href="@Url.Action("Edit", new { id = Model.TripId })" role="button">Edit Trip</a></p>
         <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to List</a></p>
