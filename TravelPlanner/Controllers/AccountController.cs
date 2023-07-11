@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using TravelPlanner.Models;
 using System.Threading.Tasks;
 using TravelPlanner.ViewModels;
+ 
+
 
 namespace TravelPlanner.Controllers
 {
@@ -18,6 +20,7 @@ namespace TravelPlanner.Controllers
       _signInManager = signInManager;
       _db = db;
     }
+ 
 
     public ActionResult Index()
     {
@@ -55,7 +58,7 @@ namespace TravelPlanner.Controllers
       }
     }
 
-       public ActionResult Login()
+    public ActionResult Login()
     {
       return View();
     }
@@ -88,5 +91,7 @@ namespace TravelPlanner.Controllers
     await _signInManager.SignOutAsync();
     return RedirectToAction("Index");
     }
+ 
+
   }
 }
