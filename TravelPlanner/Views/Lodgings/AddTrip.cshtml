@@ -1,17 +1,16 @@
 @{
   Layout = "_Layout";
 }
-
-@model TravelPlanner.Models.Destination
+@model TravelPlanner.Models.Lodging
 
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="jumbotron text-center content-box">
-      <h2>Add a trip for this destination: @Html.DisplayFor(model => model.DestinationName)</h2>
+      <h2>Add a trip for this lodging: @Html.DisplayFor(model => model.LodgingName)</h2>
 
       @using (Html.BeginForm())
       {
-          @Html.HiddenFor(model => model.DestinationId)
+          @Html.HiddenFor(model => model.LodgingId)
 
           <div class="form-group">
             <label for="TripId" class="control-label">Select a trip</label>

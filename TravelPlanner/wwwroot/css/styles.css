@@ -19,6 +19,7 @@
   position: relative;
 }
 
+
 .content-box:before {
   content: "";
   position: absolute;
@@ -32,6 +33,16 @@
   border-image-source: linear-gradient(to right, #D7806D, #392038, #FAD5B4, #EEBAB8);
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+.transportations-title {
+  font-size: 3em;
+}
 
 div#footer {
   position:fixed;
