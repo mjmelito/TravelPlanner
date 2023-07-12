@@ -118,6 +118,11 @@ h2 {
   background-color: #EEBAB8;
 }
 
+a.custom-link {
+  color: #d27b78; /* Change the color to your desired color */
+  /* Additional styles if needed */
+}
+
 /* .btn.btn-primary.btn-lg {
   background-image: url('/Assets/mountains.jpg.jpg');
   background-size: cover;

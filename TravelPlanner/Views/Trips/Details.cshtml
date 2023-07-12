@@ -26,7 +26,7 @@
             <ul>
                 @foreach (var destinationTrip in Model.DestinationTrips)
                 {
-                    <li>@Html.ActionLink(destinationTrip.Destination.DestinationName, "Details", "Destinations", new { id = destinationTrip.Destination.DestinationId })</li>
+                    <li>@Html.ActionLink(destinationTrip.Destination.DestinationName, "Details", "Destinations", new { id = destinationTrip.Destination.DestinationId }, new { @class = "custom-link" })</li>
                 }
             </ul>
             <br>
@@ -41,7 +41,7 @@
             <ul>
                 @foreach (var transportationTrip in Model.TransportationTrips)
                 {
-                    <li>@Html.ActionLink(transportationTrip.Transportation.TransportationName, "Details", "Transportations", new { id = transportationTrip.Transportation.TransportationId })</li>
+                    <li>@Html.ActionLink(transportationTrip.Transportation.TransportationName, "Details", "Transportations", new { id = transportationTrip.Transportation.TransportationId }, new { @class = "custom-link" })</li>
                 }
             </ul>
             <br>
@@ -56,7 +56,7 @@
             <ul>
                 @foreach (var lodgingTrip in Model.LodgingTrips)
                 {
-                    <li>@Html.ActionLink(lodgingTrip.Lodging.LodgingName, "Details", "Lodgings", new { id = lodgingTrip.Lodging.LodgingId })</li>
+                   <li>@Html.ActionLink(lodgingTrip.Lodging.LodgingName, "Details", "Lodgings", new { id = lodgingTrip.Lodging.LodgingId }, new { @class = "custom-link" })</li>
                 }
             </ul>
             <br>
