@@ -10,7 +10,7 @@
 }
 
 .content-box {
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
@@ -86,6 +86,14 @@ h3 {
  text-shadow: 2px 2px 0 black;
  padding-top: 20px;
  padding-bottom: 20px;
+}
+
+li {
+  padding-top: 10px;
+}
+
+.place {
+  padding-bottom: 10px;
 }
 
 /* .btn.btn-primary.btn-lg {

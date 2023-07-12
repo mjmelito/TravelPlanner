@@ -5,10 +5,10 @@
 @using TravelPlanner.Models;
 @model List<TravelPlanner.Models.Lodging>;
 
-<div class="container h-100">
-  <div class="row h-100 justify-content-center align-items-center">
-    <div class="jumbotron text-center content-box">
-      <h1>Lodgings</h1>
+<div class="container h-100 b">
+   <div class="row h-100 justify-content-center align-items-center"> 
+    <div class="jumbotron text-center content-box"> 
+      <h1 class= "place">Lodgings</h1>
 
       @if (@Model.Count == 0)
       {
@@ -25,6 +25,6 @@
       }
 
       <p><a class="btn btn-primary btn-lg" href="@Url.Action("Create")" role="button">Add new lodging</a></p>
-    </div>
-  </div>
+    </div> 
+  </div> 
 </div>
