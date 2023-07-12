@@ -18,42 +18,36 @@
 
       @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
       {
-        <div class="form-group">
+      
           @Html.LabelFor(user => user.Name, new { @class = "control-label col-sm-2" })
-          <div class="col-sm-10">
             @Html.TextBoxFor(user=> user.Name, new { @class = "form-control" })
-          </div>
-        </div>
+          
+      
 
-        <div class="form-group">
+        
           @Html.LabelFor(user => user.Email, new { @class = "control-label col-sm-2" })
-          <div class="col-sm-10">
+       
             @Html.TextBoxFor(user=> user.Email, new { @class = "form-control" })
-          </div>
-        </div>
+       
+     
 
-        <div class="form-group">
+     
           @Html.LabelFor(user=> user.Password, new { @class = "control-label col-sm-2" })
-          <div class="col-sm-10">
+         
             @Html.PasswordFor(user=> user.Password, new { @class = "form-control" })
-          </div>
-        </div>
+       
 
-        <div class="form-group">
+    
           @Html.LabelFor(user=> user.ConfirmPassword, new { @class = "control-label col-sm-2" })
-          <div class="col-sm-10">
+   
             @Html.PasswordFor(user=> user.ConfirmPassword, new { @class = "form-control" })
-          </div>
-        </div>
+        
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" class="btn btn-primary btn-lg" value="Register" style="margin-top: 20px;" />
-          </div>
-        </div>
+      
       }
 
-      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to accounts page</a></p>
+      <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index")" role="button" style="margin-top: 20px;">Back to account</a></p>
     </div>
   </div>
 </div>
