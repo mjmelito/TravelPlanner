@@ -9,10 +9,21 @@
   width: 80%;
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px;
   border: solid 2px white;
-  box-sizing: border-box;
+  box-sizing: content-box;
   background-color: rgba(255, 255, 255, 0.7); /* Optional: makes the jumbotron semi-transparent */
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+.transportations-title {
+  font-size: 3em;
 }
 
 div#footer {
