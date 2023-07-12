@@ -19,7 +19,7 @@
         <ul>
           @foreach (Trip trip in Model)
           {
-            <li>@Html.ActionLink($"{trip.Name}", "Details", new { id = trip.TripId })</li>
+            <li>@Html.ActionLink($"{trip.Name}", "Details", new { id = trip.TripId }, new { @class = "custom-link" })</li>
           }
         </ul>
       }

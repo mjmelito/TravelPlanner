@@ -19,7 +19,7 @@
           <ul>
             @foreach (Transportation transportation in Model)
             {
-              <li>@Html.ActionLink($"{transportation.TransportationName}", "Details", new { id = transportation.TransportationId })</li>
+              <li>@Html.ActionLink($"{transportation.TransportationName}", "Details", new { id = transportation.TransportationId }, new { @class = "custom-link" })</li>
             }
           </ul>
         }

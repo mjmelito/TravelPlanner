@@ -10,14 +10,14 @@
       @if (User.Identity.IsAuthenticated)
       {
         <h3>What are we doing today?</h3>
-        <div class="row justify-content-center">
-            <p><strong>See where you've been</strong></p>
+        <div class="row justify-content-center b">
+            <p>See where you've been</p>
             <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Trips")" role="button">Trips</a></p>
-            <p><strong>Plan where you'd like to go</strong></p>
+            <p>Plan where you'd like to go</p>
             <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Destinations")" role="button">Destinations</a></p>
-            <p><strong>Plan where you're going to stay</strong></p>
+            <p>Plan where you're going to stay</p>
             <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Lodgings")" role="button">Lodgings</a></p>
-            <p><strong>Plan how you're getting around</strong></p>
+            <p>Plan how you're getting around</p>
             <p><a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Transportations")" role="button">Transportation</a></p>
         </div>
       }

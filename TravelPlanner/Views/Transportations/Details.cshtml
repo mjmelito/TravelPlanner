@@ -23,7 +23,7 @@
         <ul>
           @foreach (TransportationTrip join in Model.TransportationTrips)
           {
-            <h4>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId})</h4>
+            <h4>@Html.ActionLink($"{@join.Trip.Name}", "Details", "Trips", new {id = @join.Trip.TripId}, new { @class = "custom-link" })</h4>
           }
         </ul>
         <br>
