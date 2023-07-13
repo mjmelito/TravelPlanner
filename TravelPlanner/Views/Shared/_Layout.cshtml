@@ -39,6 +39,11 @@
         <li>
           <a class="nav-link" href="@Url.Action("Index", "Transportations")">Transportation</a>
         </li>
+        <li class="nav-item">
+          <form method="post" action="@Url.Action("LogOff", "Account")">
+            <button type="submit" class="nav-link btn btn-link">Log Out</button>
+          </form>
+        </li>
       </ul>
     </div>
   </nav>
