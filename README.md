@@ -1,4 +1,4 @@
-# _Nomad Craft_
+# _NomadCraft_
 
 #### By _**Sierra Rhodes, Justin Shaffer, Matt Melito**_
 
@@ -11,6 +11,7 @@
 * _MySQL_
 * _HTML_
 * _CSS_
+* _JavaScript_
 
 
 ## Description
