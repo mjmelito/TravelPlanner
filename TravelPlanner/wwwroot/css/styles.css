@@ -103,8 +103,11 @@ li {
 }
 
 .place {
+  font-size: 60px;
   padding-bottom: 10px;
 }
+
+
 
 h2 {
   background: linear-gradient(to right, #D7806D, #392038, #FAD5B4, #EEBAB8);
